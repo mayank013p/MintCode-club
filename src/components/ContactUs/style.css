@@ -1,0 +1,150 @@
+/* Background */
+.contact-container {
+  background: linear-gradient(135deg, #000000 10%, #000c06 30%, #000000 70%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-contact {
+  color:  #00ff7f;
+}
+
+.welcome {
+  margin-top: 5rem;
+  color: white;
+  max-width: 1100px;
+  position: relative;
+  z-index: 2;
+}
+/* Floating Card */
+.floating-card-contact{
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 650px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Layout */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Two-column layout for small input fields */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 250px; /* Ensures proper spacing */
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Labels */
+label {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Input Fields */
+input, textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  box-sizing: border-box; /* Fixes overlapping issues */
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* CTA Button */
+.cta-button {
+  background: #00ff7f;
+  padding: 14px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgb(0, 0, 0);
+}
+
+.cta-button:hover {
+  box-shadow: 0 0 25px rgba(0, 52, 26, 0.364);
+}
+
+/* Contact Details */
+.contact-details {
+  margin-top: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+/* Social Media Icons */
+.social-icons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-contact {
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .floating-card-contact {
+    padding: 0.7rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+}

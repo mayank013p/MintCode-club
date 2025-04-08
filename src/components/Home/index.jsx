@@ -47,15 +47,11 @@ const Home = () => {
         <h2 className="sponsor-title">Empowering Students Together</h2> <br />
         <div className="sponsor-columns">
             <div className="sponsor-column">
-              <div className="sponsor-column">
                 <img src={gfg} alt="GeeksforGeeks Logo" className="geeksforgeeks-logo" />
-              </div>
               <p>Backed by GeeksforGeeks, we gain access to premium learning resources, mentorship, and exclusive coding events.</p>
             </div>
             <div className="sponsor-column">
-              <div className="sponsor-column">
                 <img src={jb} alt="JetBrains Logo" className="jetbrains-logo" />
-              </div>
               <p>JetBrains supports us through the Student Empowerment Program, providing tools for aspiring developers.</p>
             </div>
         </div>
@@ -88,7 +84,7 @@ const Home = () => {
 </p>
         </section>
       </div>
-
+      
       {/* Render the JoinMintcodeForm if visible */}
       {isFormVisible && <JoinMintcodeForm onClose={handleCloseForm} />}
       

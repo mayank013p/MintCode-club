@@ -6,9 +6,11 @@ import Navbar from "./components/Navbar/index";
 import Footer from './components/Footer/index';
 import EventsPage from './components/Events/index';
 import TeamPage from './components/Members/index';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function App() {
   return (
+    
     <Router>
       <Navbar />
       <Routes>

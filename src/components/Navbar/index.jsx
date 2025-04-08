@@ -9,25 +9,34 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
+  const handleLinkClick = () => {
+    setMenuOpen(false); // Auto-close on link click
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src={logo} alt="MintCode Logo" />
+        <Link to="/" onClick={handleLinkClick} className={location.pathname === "/" ? "active" : ""}>
+          <img src={logo} alt="MintCode Logo" />
+        </Link>
       </div>
 
+      {/* Main Links */}
       <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
-        <Link to="/" className={location.pathname === "/" ? "active" : ""}>Home</Link>
-        <Link to="/events" className={location.pathname === "/events" ? "active" : ""}>Events</Link>
-        <Link to="/team" className={location.pathname === "/team" ? "active" : ""}>Members</Link>
-        <Link to="/about" className={location.pathname === "/about" ? "active" : ""}>About Us</Link>
-        {/* <Link to="/resources" className={location.pathname === "/resources" ? "active" : ""}>Resources</Link>
-        <Link to="/projects" className={location.pathname === "/projects" ? "active" : ""}>Projects</Link> */}
+        <Link to="/" onClick={handleLinkClick} className={location.pathname === "/" ? "active" : ""}>Home</Link>
+        <Link to="/events" onClick={handleLinkClick} className={location.pathname === "/events" ? "active" : ""}>Events</Link>
+        <Link to="/team" onClick={handleLinkClick} className={location.pathname === "/team" ? "active" : ""}>Members</Link>
+        <Link to="/about" onClick={handleLinkClick} className={location.pathname === "/about" ? "active" : ""}>About Us</Link>
       </div>
 
-      <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
-      <Link to="/contact" className={location.pathname === "/contact" ? "active" : ""}>Contact us</Link>
+      {/* Contact in separate container, still responsive */}
+      <div className={`navbar-contact ${menuOpen ? "open" : ""}`}>
+        <Link to="/contact" onClick={handleLinkClick} className={location.pathname === "/contact" ? "active" : ""}>
+          Contact us
+        </Link>
       </div>
 
+      {/* Hamburger icon */}
       <div className="navbar-menu" onClick={() => setMenuOpen(!menuOpen)}>
         <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
       </div>

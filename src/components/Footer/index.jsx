@@ -12,9 +12,6 @@ const Footer = () => {
 
       <div className="footer-section footer-center">
         <img src={logo} alt="MintCode Logo" />
-        <div className="language-options">
-          <span>FR</span> &nbsp; | &nbsp; <span>EN</span>
-        </div>
       </div>
 
       <div className="footer-section footer-right">

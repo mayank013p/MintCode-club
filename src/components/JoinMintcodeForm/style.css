@@ -51,15 +51,14 @@
   }
   .button-group {
     display: flex;
-    justify-content: space-between;
+    justify-content: center !important;
     margin-top: 1rem;
+    gap: 300px;
   }
-  .close-btn {
-    background: #00ff7f;
-    color: rgb(0, 0, 0);
-    border-radius: 30px;
+  button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
-  
   /* Input Group */
   .form-group {
     flex: 1;
@@ -88,15 +87,56 @@
   /* Submit Button */
   .popup-form button {
     background: #00ff7f;
-    padding: 12px;
-    border-radius: 30px;
+    padding: 8px !important;
+    border-radius: 10px !important;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
     font-size: 1rem;
+    gap: 10px;
   }
 
-
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: transparent !important;
+    border: none;
+    font-size: 1.5rem !important;
+    color: white;
+    cursor: pointer;
+  }
+  .success-message {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .checkmark-animation {
+    font-size: 60px;
+    color: green;
+    animation: pop 0.4s ease forwards;
+    margin-bottom: 10px;
+  }
+  
+  @keyframes pop {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    80% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
   
   /* Responsive Design */
   @media (max-width: 600px) {

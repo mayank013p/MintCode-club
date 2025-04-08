@@ -16,7 +16,7 @@
   text-align: left;
   margin-top: 8rem;
   color: white;
-  max-width: 1100px;
+  max-width: 1200px;
   position: relative;
   z-index: 2;
   display: flex;
@@ -43,7 +43,7 @@
 .cta-button {
   background: #00ff7f;
   padding: 12px 24px;
-  border-radius: 30px;
+  border-radius: 10px !important;
   font-weight: bold;
   cursor: pointer
 }
@@ -133,6 +133,7 @@
 .sponsor-columns {
   display: flex; /* Ensure it is a flex container */
   gap: 2rem;
+  max-width: 1200px;
 }
 
 .sponsor-column {
@@ -154,7 +155,6 @@
 }
 
 .vision, .mission, .values {
-  margin-top: 4rem;
   color: white;
   max-width: 1100px;
   position: relative;
@@ -174,12 +174,18 @@
   font-size: 2rem;
 }
 
+.sponsor-column p {
+  text-align: justify;
+  padding: 0px;
+}
+
 /* Columns for New Sections */
 .columns {
   display: flex;
   justify-content: space-between;
   margin-top: 2rem; /* Add margin for spacing */
   gap: 2rem;
+  max-width: 1200px;
 }
 
 
@@ -241,6 +247,7 @@
   }
 
   .floating-card {
+    padding: 0.5rem;
   }
 }
 
@@ -269,5 +276,9 @@
 
   .floating-card {
     padding: 0.5rem;
+  }
+  .jetbrains-logo {
+    width: 70%; /* Use relative width for JetBrains logo */
+    height: 16%; /* Allow height to scale proportionally */
   }
 }

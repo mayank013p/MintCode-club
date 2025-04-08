@@ -23,7 +23,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-/* Navbar Logo */
+/* Logo */
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -35,7 +35,7 @@
   margin-right: 10px;
 }
 
-/* Navbar Links */
+/* Links */
 .navbar-links {
   display: flex;
   gap: 40px;
@@ -73,14 +73,53 @@
   width: 100%;
 }
 
-/* Mobile Menu */
+/* Contact Link */
+.navbar-contact {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-contact a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  position: relative;
+  margin-left: 30px;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar-contact a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #3EB489;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+}
+
+.navbar-contact a:hover,
+.navbar-contact a.active {
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.navbar-contact a:hover::after,
+.navbar-contact a.active::after {
+  width: 100%;
+}
+
+/* Hamburger Menu */
 .navbar-menu {
   display: none;
   cursor: pointer;
   font-size: 24px;
 }
 
-/* Responsive for Tablets & Mobiles */
+/* Tablet */
 @media (max-width: 1024px) {
   .navbar {
     width: calc(100% - 40px);
@@ -100,7 +139,7 @@
   }
 }
 
-/* Mobile Navigation */
+/* Mobile Menu */
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
@@ -124,6 +163,32 @@
   .navbar-links.open {
     display: flex;
     transform: translateX(0);
+  }
+
+
+ .navbar-contact {
+  align-items:start;
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 235px; /* Stack below other links */
+    right: 0;
+    width: 200px;
+    padding: 15px;
+    border-bottom-left-radius: 10px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+  .navbar-contact.open {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .navbar-contact a {
+    font-size: 16px;
+    margin-left: 0;
+    margin-top: 10px;
   }
 
   .navbar-menu {

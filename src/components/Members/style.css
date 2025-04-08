@@ -71,7 +71,7 @@
     backdrop-filter: blur(10px);
     border-radius: 16px;
     padding: 1.5rem;
-    width: 280px;
+    width: 228px;
     box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
@@ -84,7 +84,7 @@
   
   .member-card h3 {
     margin-bottom: 0.5rem;
-    color: #ffffff;
+    color: #bcbcbc;
     font-size: 1.5rem;
   }
   

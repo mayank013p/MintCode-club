@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.785);
+    background: rgba(10, 10, 10, 0.75);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.673);
+    background: #1a1a1a; /* Dark background */
     backdrop-filter: blur(10px);
     border-radius: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -25,8 +25,9 @@
     z-index: 1000;
     width: 90%;
     max-width: 600px;
-    max-height: 80vh; /* Prevents form from getting too large */
+    max-height: 72vh; /* Prevents form from getting too large */
     overflow-y: auto; /* Enables vertical scrolling */
+    margin-top: 50px;
 }
 
 .popup-form::-webkit-scrollbar {
@@ -43,6 +44,7 @@
 }
 /* Title */
 .popup-form h2 {
+    margin-top: 3rem;
     margin-bottom: 1.5rem;
     text-align: center;
     color: #00ff7f;
@@ -86,7 +88,7 @@
 .popup-form input,
 .popup-form select,
 .popup-form textarea {
-    padding: 12px;
+    padding: 12px 12px 12px 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
     width: 100%;
@@ -94,8 +96,24 @@
     color: white;
     font-size: 1rem;
     box-sizing: border-box;
+    
 }
-
+.popup-form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2012%207%22%20xmlns%3D%22http://www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1%200l5%205%205-5z%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+  
+    padding-right: 2.5rem; /* make room for arrow */
+  }
+  .popup-form select option {
+    background-color: #2b2b2b;
+    color: white;
+  }
 /* Adjustments for Larger Text Areas */
 .popup-form textarea {
     min-height: 100px;
@@ -113,8 +131,129 @@
     font-size: 1rem;
 }
 
+.team-section{
+    margin-bottom: 5px;
+    text-align: left;
+}
+.team-form-group{
+    display: flex;
+    margin-bottom: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+
+.team-member-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .team-member-row input {
+    flex: 1;
+  }
+  
+  .remove-member-btn {
+    color: #ffffff !important;
+    background: #2e3633 !important;
+    font-size: 1rem !important; 
+    padding: 4px 9px !important; 
+    border-radius: 15px !important; 
+    cursor: pointer !important; 
+    transition: 0.3s !important; 
+    border: none !important;
+  }
+  
+  .add-member-button {
+    color: #ffffff !important;
+    background: #2e3633 !important;
+    font-size: 1rem !important; 
+    padding: 4px 9px !important; 
+    border-radius: 15px !important; 
+    cursor: pointer !important; 
+    transition: 0.3s !important; 
+    border: none !important;
+}
+
+.limit-message {
+    color: #ff0000;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  .form-close-button {
+    position: absolute;
+    top: 1rem !important;
+    right: 1.2rem !important;
+    background: transparent !important;
+    border: none;
+    font-size: 1.5rem !important;
+    color: white;
+    cursor: pointer;
+  }
+  .form-close-button:hover {
+    color: #00ff7f;
+  }
+
+  .success-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.6s ease-in-out;
+    padding: 30px;
+    color: #28a745;
+  }
+  
+  .checkmark-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #d4edda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    animation: popIn 0.5s ease forwards;
+  }
+  
+  .checkmark {
+    font-size: 48px;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  @keyframes popIn {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+
+    .popup-form {
+        width: 80%;
+        padding: 20px;
+    }
+
     .form-row {
         flex-direction: column;
     }

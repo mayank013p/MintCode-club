@@ -24,7 +24,7 @@
 }
 /* Floating Card */
 .floating-card-contact{
-  background: rgba(255, 255, 255, 0.07);
+  background: #1a1a1a; /* Dark background */
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 15px;
@@ -93,12 +93,11 @@ textarea {
 /* CTA Button */
 .cta-button {
   background: #00ff7f;
-  padding: 14px;
-  border-radius: 30px;
+  padding: 10px;
+  border-radius: 10px !important;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  text-transform: uppercase;
   box-shadow: 0 0 15px rgb(0, 0, 0);
 }
 
@@ -136,6 +135,44 @@ textarea {
 
 .icon:hover {
   transform: scale(1.1);
+}
+.success-message {
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeIn 0.5s ease-in-out;
+  color:white;
+}
+
+.checkmark-animation {
+  font-size: 60px;
+  color: green;
+  animation: pop 0.4s ease forwards;
+  margin-bottom: 10px;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive Design */

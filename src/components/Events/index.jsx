@@ -113,7 +113,8 @@ const Events = () => {
                   <button className="details-btn" onClick={() => openEventDetails(event)}>More Details</button>
 
                   {new Date(event.deadline).getTime() > new Date().getTime() ? (
-                    <button className="register-btn" onClick={() => openRegistrationForm(event)}>Register Now</button>
+                    // <button className="register-btn" onClick={() => openRegistrationForm(event)}>Register Now</button>
+                    <button className="register-btn">Register Now</button>
                   ) : (
                     <button className="leaderboard-btn" onClick={() => setShowLeaderboard(event)}>Leaderboard</button>
                   )}

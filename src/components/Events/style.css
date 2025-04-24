@@ -160,8 +160,7 @@
   justify-content: space-between;
 }
 
-.details-btn,
-.register-btn {
+.details-btn{
   padding: 10px;
   border-radius: 5px;
   font-size: 1rem;
@@ -169,6 +168,15 @@
   cursor: pointer;
   transition: 0.3s;
   border: none;
+}
+.register-btn {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s;
+  border: none;
+  cursor: not-allowed;
 }
 
 .details-btn {
@@ -196,6 +204,7 @@
 .register-btn {
   background: #28a745;
   color: rgb(0, 0, 0);
+  cursor: not-allowed;
 }
 
 .register-btn:hover {

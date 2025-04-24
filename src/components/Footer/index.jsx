@@ -15,9 +15,9 @@ const Footer = () => {
       </div>
 
       <div className="footer-section footer-right">
-        <a href="#"><FaLink /></a>
-        <a href="#"><FaInstagram /></a>
-        <a href="#"><FaLinkedinIn /></a>
+        <a href="https://mint-code-club-rovt.vercel.app/"><FaLink /></a>
+        <a href="https://www.instagram.com/mintcode2025/"><FaInstagram /></a>
+        <a href="https://www.linkedin.com/company/105040951/"><FaLinkedinIn /></a>
       </div>
     </footer>
   );

@@ -287,6 +287,22 @@
 .popup-content-detail span {
   color: rgb(193, 189, 189);
 }
+/* Add or update this in your CSS file (style.css) */
+.no-events-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;  /* This ensures it takes over the full screen */
+  left: 0;
+  width: 100%;
+  z-index: 0; /* Make sure it appears above other content */
+}
+
+.no-events-container .lottie {
+  max-width: 200px;
+  max-height: 200px;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

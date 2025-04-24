@@ -4,6 +4,9 @@ import logo from "../../assets/logowhite.png";
 import RegistrationForm from "./RegistrationForm";
 import LeaderboardPopup from "./LeaderboardPopup";
 import hackthemint from "../../assets/Hack-The-Mint.jpg";
+import animationData from "../../assets/nodata.json"; // Make sure to update the path to your Lottie JSON
+
+import Lottie from "react-lottie"; // Import the Lottie component
 
 const Events = () => {
   const [eventsData, setEventsData] = useState([]);
@@ -124,7 +127,17 @@ const Events = () => {
             </div>
           ))
         ) : (
-          <p className="no-events-message">No matching events found.</p>
+          <div className="no-events-container">
+            <Lottie
+              options={{
+                animationData: animationData,
+                loop: true,
+                autoplay: true,
+              }}
+              height={200}
+              width={200}
+            />
+          </div>
         )}
       </div>
 

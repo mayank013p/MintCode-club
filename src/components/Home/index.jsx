@@ -1,12 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
 import logo from "../../assets/logowhite.png"; // Add your logo in the 'assets' folder
 import gfg from "../../assets/GeeksforGeeks.png";
 import jb from "../../assets/jetbrains-mono-white.png";
 import JoinMintcodeForm from '../JoinMintcodeForm/JoinMintcodeForm'; // Import the new form component
+import animationData from "../../assets/transition.json";
+import Lottie from "react-lottie";
 
 const Home = () => {
   const [isFormVisible, setFormVisible] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLogo(true);
+    }, 5000); // Show logo after 1.5 seconds
+  
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleJoinClick = () => {
     setFormVisible(true);
@@ -31,14 +42,27 @@ const Home = () => {
           <button className="cta-button" onClick={handleJoinClick}>Join MintCode!</button>
         </div>
         <div>
-          <section className="floating-section">
-            <div className="floating-card">
-              <div className="floating-icons">
-                <span className="icon figma">📝</span>
-                <span className="icon photoshop">｡🇯‌🇸‌</span>
-              </div>
-              <img src={logo} alt="MintCode Logo" className="status"/>🟢 
+        <section className="floating-card">
+            <div className="floating-icons">
+              <span className="icon figma">📝</span>
+              <span className="icon photoshop">｡🇯‌🇸‌</span>
             </div>
+            {
+              showLogo ? (
+                <img src={logo} alt="MintCode Logo" className={`status fade-in`} />
+              ) : (
+                <Lottie
+                  options={{
+                    animationData: animationData,
+                    loop: false,
+                    autoplay: true
+                  }}
+                  height={222}
+                  width={300}
+                />
+              )
+            }
+            {showLogo && <span>🟢</span>}
           </section>
         </div>
       </header>

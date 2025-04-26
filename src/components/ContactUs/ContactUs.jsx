@@ -162,9 +162,9 @@ const ContactUs = () => {
 
       <div className="contact-details">
         <h2>Contact Details</h2>
-        <p>Phone: +91 9876543210</p>
-        <p>Email: contact@gmail.com</p>
-        <p>Address: 302012 Sitapura, Jaipur IND</p>
+        <p>Phone: +91 9587063506</p>
+        <p>Email: mayank.aitan@mintcode.club</p>
+        <p>Address: 302012 Sitapura, Jaipur, India</p>
       </div>
     </div>
   );

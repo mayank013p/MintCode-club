@@ -43,13 +43,13 @@ const membersData = [
     },
     {
       id: 8,
-      name: "Raj Geholt",
+      name: "Raj Gehlot",
       role: "Developer",
       linkedin: "https://www.linkedin.com/",
     },
     {
       id: 9,
-      name: "Tansihq",
+      name: "Tanishq S.",
       role: "Developer",
       linkedin: "https://www.linkedin.com/in/tanishq-saini-316b85277/",
     },

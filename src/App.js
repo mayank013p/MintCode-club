@@ -35,7 +35,7 @@ function App() {
         <Route path="/contact" element={<ContactUsPage />} /> 
         <Route path="/events" element={<EventsPage />} />
         <Route path="/team" element={<TeamPage />} />
-        <Route path="/gemini" element={<GeminiPage />} />
+        <Route path="/mintai" element={<GeminiPage />} />
       </Routes>
       <Footer />
 

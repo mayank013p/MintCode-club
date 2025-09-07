@@ -15,6 +15,19 @@ export default defineConfig({
     open: true,
   },
   build: {
-    outDir: 'dist',
+    outDir: 'build',
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['framer-motion', 'react-icons', '@fortawesome/react-fontawesome', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-solid-svg-icons'],
+          auth: ['@react-oauth/google', 'axios'],
+          ai: ['@google/generative-ai', 'react-markdown', 'rehype-highlight', 'remark-gfm'],
+          animations: ['lottie-web', '@lottiefiles/react-lottie-player', '@lottiefiles/dotlottie-react'],
+          utils: ['react-countup', 'styled-components', 'dotenv'],
+        },
+      },
+    },
   },
 })

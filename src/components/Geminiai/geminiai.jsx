@@ -5,8 +5,9 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import 'highlight.js/styles/github-dark.css';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import LoadingSpinner from '../LoadingSpinner';
 
-const genAI = new GoogleGenerativeAI('AIzaSyDSeYX7xwihPG4PV4UY3o6mOk-cUUL0TSI'); // Replace with actual key
+const genAI = new GoogleGenerativeAI('AIzaSyBI5ww5nTJFPl9NlqVpeZlZCNxAmgkhtk4'); // Use provided API key directly
 
 const GeminiPage = () => {
   const [query, setQuery] = useState('');
@@ -47,10 +48,19 @@ const GeminiPage = () => {
 
       setMessages((prev) => [...prev, { role: 'assistant', content: fullResponse }]);
       setStreamedResponse('');
+      setLoading(false);
     } catch (error) {
       console.error('Error:', error);
-      setMessages((prev) => [...prev, { role: 'assistant', content: 'Error retrieving response.' }]);
-    } finally {
+
+      let errorMessage = 'Error retrieving response.';
+
+      if (error.message && (error.message.includes('429') || error.message.includes('RATE_LIMIT_EXCEEDED'))) {
+        errorMessage = 'There are some internal errors. Please try again after some time.';
+      } else if (error.message && error.message.includes('API_KEY_INVALID')) {
+        errorMessage = 'There are some internal errors. Please try again after some time.';
+      }
+
+      setMessages((prev) => [...prev, { role: 'assistant', content: errorMessage }]);
       setLoading(false);
     }
   };
@@ -61,11 +71,13 @@ const GeminiPage = () => {
     }
   }, [messages, streamedResponse]);
 
+
+
   return (
     <div className="gemini-wrapper">
       <aside className="sidebar">
         <header className="gemini-header">
-          <h1>Mint Ai ✨</h1>
+          <h1>Mint AI ✨</h1>
         </header>
         <h2>Suggestions</h2>
         <ul>

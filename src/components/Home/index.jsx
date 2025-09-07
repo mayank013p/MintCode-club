@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import logo from "../../assets/logowhite.png"; // Add your logo in the 'assets' folder
 import gfg from "../../assets/GeeksforGeeks.png";
-import jb from "../../assets/jetbrains-mono-white.png";
+import jb from "../../assets/jetbrains.png";
 import JoinMintcodeForm from '../JoinMintcodeForm/JoinMintcodeForm'; // Import the new form component
 import animationData from "../../assets/transition.json";
 import Lottie from "react-lottie";
+import CountUp from 'react-countup';
 
 const Home = () => {
   const [isFormVisible, setFormVisible] = useState(false);
@@ -66,6 +67,27 @@ const Home = () => {
           </section>
         </div>
       </header>
+
+      {/* Stats Section */}
+      <section className="stats-container">
+        <div className="stat-item">
+          <h2><CountUp end={5} duration={3} />+</h2>
+          <p>Collaborations</p>
+        </div>
+        <div className="stat-item">
+          <h2><CountUp end={2} duration={3} />+</h2>
+          <p>Events Conducted</p>
+        </div>
+        <div className="stat-item">
+          <h2><CountUp end={50} duration={3} />+</h2>
+          <p>Community Members</p>
+        </div>
+        <div className="stat-item">
+          <h2><CountUp end={2024} duration={3} /></h2>
+          <p>Year Founded</p>
+        </div>
+      </section>
+
       {/* New Sponsor Section */}
       <section className="sponsor-section">
         <h2 className="sponsor-title">Empowering Students Together</h2> <br />

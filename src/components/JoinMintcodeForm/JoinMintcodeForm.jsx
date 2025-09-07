@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css"; // Add styles below if not already
+import LoadingSpinner from "../LoadingSpinner";
 
 const JoinMintcodeForm = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const JoinMintcodeForm = ({ onClose }) => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/join`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/join`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,6 +59,10 @@ const JoinMintcodeForm = ({ onClose }) => {
       setIsSubmitting(false);
     }
   };
+
+  if (isSubmitting) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="popup-overlay">

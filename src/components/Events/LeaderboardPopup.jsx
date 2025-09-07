@@ -8,7 +8,7 @@ const LeaderboardPopup = ({ onClose, event }) => {
   useEffect(() => {
     if (event?.id) {
       axios
-        .get(`${process.env.REACT_APP_API_URL}/api/leaderboard/${event.id}`)
+        .get(`${import.meta.env.VITE_API_URL}/api/leaderboard/${event.id}`)
         .then((res) => {
           setLeaderboardData(res.data.leaderboard || []);
         })

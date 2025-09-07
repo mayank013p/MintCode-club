@@ -1,133 +1,163 @@
 .members-container {
-    background: linear-gradient(135deg, #000000 10%, #000c06 30%, #000000 70%);
-    min-height: 100vh;
-    padding: 4rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-  }
-  
-  .members-hero {
-    max-width: 1100px;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  .members-hero h1 {
-    margin-top: 40px;
-    font-size: 2.5rem;
-    font-weight: bold;
-  }
-  
-  .members-hero .highlight {
-    color: #00ff7f;
-  }
-  
-  .members-hero p {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    opacity: 0.8;
-  }
-  
-  /* Search Box */
-  .members-search-box-container {
-    width: 100%;
-    text-align: center;
-    margin: 2rem 0;
-  }
-  
-  .members-search-box {
-    width: 100%;
-    max-width: 400px;
-    padding: 12px 20px;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid #5a5959;
-    color: white;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  .members-search-box:focus {
-    border: 2px solid #5a5959;
-    border-color: #393939;
-  }
-  
-  /* Grid */
-  .members-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    max-width: 1200px;
-  }
-  
-  /* Member Card */
-  .member-card {
-    background: rgba(255, 255, 255, 0.112);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 1.5rem;
-    width: 228px;
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-  }
-  
-  .member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px #000000;
-  }
-  
-  .member-card h3 {
-    margin-bottom: 0.5rem;
-    color: #bcbcbc;
-    font-size: 1.5rem;
-  }
-  
-  .member-card p {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
-    opacity: 0.85;
-  }
-  
-  /* LinkedIn Button */
-  .member-card-linkedin-link {
-    display: inline-block;
-    margin-top: 1rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-  }
-  
+  background: #000000;
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  font-family: 'Inter', sans-serif;
+  color: #a0a0a0;
+}
 
-  
-  /* No Results */
-  .no-members-message {
-    font-size: 1.2rem;
-    margin-top: 2rem;
-    color: #aaa;
+.members-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.members-hero h1 {
+  font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.members-hero .highlight {
+  color: #00ff7f;
+}
+
+.members-hero p {
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  opacity: 0.7;
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.members-search-box {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 20px;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.members-search-box:focus {
+  border-color: #00ff7f;
+}
+
+.year-filter {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.year-button {
+  background: transparent;
+  border: 1px solid #333;
+  color: #a0a0a0;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.year-button.active {
+  background: #00ff7f;
+  color: #000;
+  border-color: #00ff7f;
+}
+
+.year-group {
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+}
+
+.year-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #222;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.member-card {
+  background: #111;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.member-card h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 0.25rem 0;
+}
+
+.member-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.member-linkedin {
+  margin-top: 1rem;
+}
+
+.member-linkedin a {
+  display: inline-block;
+  background-color: #0077B5;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.member-linkedin a:hover {
+  background-color: #005f94;
+}
+
+.no-members-message {
+  font-size: 1.1rem;
+  text-align: center;
+  width: 100%;
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .members-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .members-hero h1 {
-      font-size: 2rem;
-      text-align: center;
-    }
-  
-    .members-hero p {
-      text-align: center;
-    }
-  
-    .members-grid {
-      flex-direction: column;
-      align-items: center;
-    }
+}
+
+@media (max-width: 768px) {
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
+}
+
+@media (max-width: 480px) {
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -183,6 +183,7 @@
   .navbar-contact.open {
     display: flex;
     transform: translateX(0);
+    gap: 20px;
   }
 
   .navbar-contact a {
@@ -194,4 +195,37 @@
   .navbar-menu {
     display: block;
   }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.user-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logout-button {
+  background: #00ff807f;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.logout-button:hover {
+  background: #2d8c6b;
+}
+
+.login-button-container {
+  margin-left: 20px;
 }

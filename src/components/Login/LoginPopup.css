@@ -1,0 +1,67 @@
+.login-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.login-popup-content {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: #ffffff;
+  max-width: 400px;
+  width: 90%;
+  border: 1px solid #444;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.login-popup-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  background: #00ff7f;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-popup-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #cccccc;
+}
+
+.google-login-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.google-login-container > div > div > div > div > svg {
+  filter: invert(1) brightness(1.2);
+}
+
+.close-popup-btn {
+  background: linear-gradient(45deg, #ff4757, #ff3838);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+}
+
+.close-popup-btn:hover {
+  background: linear-gradient(45deg, #ff3838, #ff2828);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+}

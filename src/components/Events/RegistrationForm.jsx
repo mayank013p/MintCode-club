@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Regform.css";
+import { useAuth } from "../../contexts/AuthContext";
 
-const RegistrationForm = ({ selectedEvent, onClose }) => {
+const RegistrationForm = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { user, idToken } = useAuth();
+  const selectedEvent = location.state?.event;
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -19,6 +25,23 @@ const RegistrationForm = ({ selectedEvent, onClose }) => {
   });
 
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    if (!selectedEvent) {
+      navigate('/events');
+    }
+  }, [selectedEvent, navigate]);
+
+  useEffect(() => {
+    if (user) {
+      setFormData((prev) => ({
+        ...prev,
+        fullName: user.name || "",
+        email: user.email || "",
+      }));
+    }
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,6 +72,13 @@ const RegistrationForm = ({ selectedEvent, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    if (!idToken) {
+      alert("You must be logged in to register.");
+      setIsSubmitting(false);
+      return;
+    }
 
     const payload = {
       eventid: selectedEvent?.id || selectedEvent?.eventId,
@@ -68,40 +98,48 @@ const RegistrationForm = ({ selectedEvent, onClose }) => {
     };
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/registration`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/registration`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${idToken}`,
         },
         body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         setShowSuccess(true);
+        setIsSubmitting(false);
         setTimeout(() => {
-          setShowSuccess(false);
-          onClose();
+          navigate('/events');
         }, 2500);
       } else {
         const data = await response.json();
         alert(`Registration Failed: ${data.message || "Unknown error"}`);
+        setIsSubmitting(false);
       }
     } catch (error) {
       console.error("Registration error:", error);
       alert("An error occurred while submitting the form.");
+      setIsSubmitting(false);
     }
   };
 
+  if (!selectedEvent) {
+    return null; // Or a loading spinner
+  }
+
   return (
-    <div className="popup-overlay" onClick={onClose}>
-      <div className="popup-form" onClick={(e) => e.stopPropagation()}>
+    <div className="registration-page-container">
+      <div className="popup-overlay">
+        <div className="popup-form">
         {showSuccess ? (
           <div className="success-animation">
             <div className="checkmark-circle">
               <div className="background"></div>
               <div className="checkmark">&#10003;</div>
             </div>
-            <p>Registration Successful!</p>
+            <p>Registration Successful! Redirecting...</p>
           </div>
         ) : (
           <>
@@ -279,16 +317,20 @@ const RegistrationForm = ({ selectedEvent, onClose }) => {
               </div>
 
               <div className="button-group">
-                <button type="submit">Register</button>
+                <button type="submit" disabled={isSubmitting}>
+                  {isSubmitting && <div className="small-spinner"></div>}
+                  {isSubmitting ? "Registering..." : "Register"}
+                </button>
               </div>
             </form>
-            <button className="form-close-button" onClick={onClose}>
+            <button className="form-close-button" onClick={() => navigate('/events')}>
               ✖
             </button>
           </>
         )}
       </div>
     </div>
+  </div>
   );
 };
 

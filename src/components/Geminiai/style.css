@@ -7,9 +7,9 @@ body {
   }
   
   .gemini-wrapper {
-    background: linear-gradient(135deg, #000000 10%, #000c06 30%, #000000 70%);
+    background: #343541;
     display: flex;
-    height: 90vh;
+    height: 100vh;
     overflow: hidden;
   }
   

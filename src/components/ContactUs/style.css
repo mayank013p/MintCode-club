@@ -26,10 +26,10 @@
 .floating-card-contact{
   background: #1a1a1a; /* Dark background */
   backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 15px;
+  padding: 1.5rem;
+  border-radius: 12px;
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -37,14 +37,14 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /* Two-column layout for small input fields */
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: space-between;
 }
 
@@ -62,21 +62,23 @@ form {
 /* Labels */
 label {
   color: white;
-  font-size: 1rem;
-  margin-bottom: 5px;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
   text-align: left;
+  font-weight: 500;
 }
 
 /* Input Fields */
 input, textarea {
-  padding: 12px;
-  border-radius: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
   border: 1px solid #ccc;
   width: 100%;
   background: rgba(255, 255, 255, 0.1);
   color: white;
-  font-size: 1rem;
+  font-size: 0.9rem;
   box-sizing: border-box; /* Fixes overlapping issues */
+  transition: border-color 0.2s ease;
 }
 
 input:focus, textarea:focus {

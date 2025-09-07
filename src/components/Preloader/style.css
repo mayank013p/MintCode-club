@@ -9,6 +9,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(135deg, #000000 10%, #000c06 30%, #000000 70%);
+    animation: bgMove 6s linear infinite;
   }
   
   .animated-background {
@@ -87,4 +89,3 @@
       opacity: 1;
     }
   }
-  

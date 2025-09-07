@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
+import LoadingSpinner from '../LoadingSpinner';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const ContactUs = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -55,6 +56,10 @@ const ContactUs = () => {
       setIsSubmitting(false);
     }
   };
+
+  if (isSubmitting) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="contact-container">

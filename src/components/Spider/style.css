@@ -1,0 +1,29 @@
+.spider {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none; /* So it doesn't interfere with clicks */
+  filter: drop-shadow(0 0 10px rgba(0, 255, 127, 0.5)); /* Green glow */
+}
+
+.spider-svg {
+  width: 80px;
+  height: 80px;
+}
+
+.leg {
+  animation: wiggle 2s infinite;
+}
+
+.leg1 { animation-delay: 0s; }
+.leg2 { animation-delay: 0.25s; }
+.leg3 { animation-delay: 0.5s; }
+.leg4 { animation-delay: 0.75s; }
+.leg5 { animation-delay: 1s; }
+.leg6 { animation-delay: 1.25s; }
+.leg7 { animation-delay: 1.5s; }
+.leg8 { animation-delay: 1.75s; }
+
+@keyframes step {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}

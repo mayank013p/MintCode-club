@@ -24,8 +24,8 @@ const EventDetailsPopup = ({ event, onClose, onEdit }) => {
               <div className="popup-key-details">
                 <h4>Details</h4>
                 <ul>
-                  <li><strong>Date:</strong> {new Date(event.eventdate).toDateString()}</li>
-                  <li><strong>Registration Deadline:</strong> {new Date(event.registrationdeadline).toDateString()}</li>
+                  <li><strong>Date:</strong> {new Date(event.date).toDateString()}</li>
+                  <li><strong>Registration Deadline:</strong> {new Date(event.deadline).toDateString()}</li>
                   <li><strong>Venue:</strong> {event.venue}</li>
                 </ul>
               </div>

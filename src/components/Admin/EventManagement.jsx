@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import './style.css';
 import EventDetailsPopup from '../Events/EventDetailsPopup';
+import RegistrationList from './RegistrationList';
 
 const EventManagement = () => {
   const [events, setEvents] = useState([]);
@@ -10,6 +11,7 @@ const EventManagement = () => {
   const [editingEvent, setEditingEvent] = useState(null);
   const [isCreating, setIsCreating] = useState(false);
   const [viewingEvent, setViewingEvent] = useState(null);
+  const [showRegistrationsForEvent, setShowRegistrationsForEvent] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState('all');
 
@@ -134,12 +136,27 @@ const EventManagement = () => {
             <p className="event-description">{event.description}</p>
             <div className="event-actions">
               <button onClick={() => setViewingEvent(event)} className="details-btn">Details</button>
+              <button onClick={() => setShowRegistrationsForEvent(event.id)} className="registration-btn">View Registrations</button>
               <button onClick={() => setEditingEvent(event)} className="edit-btn">Edit</button>
               <button onClick={() => handleDelete(event.id)} className="delete-btn">Delete</button>
             </div>
           </div>
         )) : <p>No events found matching your criteria.</p>}
       </div>
+
+      {showRegistrationsForEvent && (
+        <div className="registration-list-popup">
+          <div className="registration-list-content">
+            <div className="registration-list-header">
+              <h3>Registrations</h3>
+              <button className="close-registration-list" onClick={() => setShowRegistrationsForEvent(null)}>Close</button>
+            </div>
+            <div className="registration-list-body">
+              <RegistrationList eventId={showRegistrationsForEvent} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

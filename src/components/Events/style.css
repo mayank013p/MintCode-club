@@ -33,7 +33,7 @@
 }
 
 .search-box {
-  padding: 18px;
+  padding: 10px;
   font-size: 16px;
   border: 2px solid #ccc;
   border-radius: 5px;
@@ -205,16 +205,34 @@
   100% { box-shadow: 0 0 0 0 rgba(0, 255, 127, 0); }
 }
 
-.countdown {
+.countdown-container {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  max-width: 90%;
+  word-wrap: break-word;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .countdown-container {
+    position: static;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+}
+
+.countdown {
   background-color: rgba(0, 0, 0, 0.7);
   color: #00ff7f;
   padding: 5px 10px;
   border-radius: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: bold;
+  text-align: center;
 }
 
 /* Buttons */

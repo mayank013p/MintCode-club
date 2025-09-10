@@ -204,6 +204,10 @@
   margin-left: 20px;
 }
 
+.user-info span {
+  font-weight: bold;
+}
+
 .user-picture {
   width: 40px;
   height: 40px;

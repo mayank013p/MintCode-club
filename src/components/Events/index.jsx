@@ -23,6 +23,7 @@ const Events = () => {
   const [loading, setLoading] = useState(true);
   const [visibleEventsCount, setVisibleEventsCount] = useState(4);
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [countdowns, setCountdowns] = useState({});
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,8 +37,8 @@ const Events = () => {
         const formattedEvents = sortedEvents.map((event) => ({
           id: event.id,
           title: event.title,
-          date: new Date(event.eventdate).toDateString(),
-          deadline: new Date(event.registrationdeadline).toDateString(),
+          date: event.eventdate,
+          deadline: event.registrationdeadline,
           type: new Date(event.eventdate) < new Date() ? "past" : "upcoming",
           eventType: event.eventtype,
           memberLimit: event.memberlimit || 1,
@@ -58,6 +59,23 @@ const Events = () => {
 
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newCountdowns = {};
+      eventsData.forEach(event => {
+        if (event.type === 'upcoming') {
+          newCountdowns[event.id] = {
+            registration: calculateCountdown(event.deadline),
+            event: calculateCountdown(event.date)
+          };
+        }
+      });
+      setCountdowns(newCountdowns);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [eventsData]);
 
   const filteredEvents = eventsData.filter((event) =>
     (selectedFilter === "all" || event.type === selectedFilter) &&
@@ -81,9 +99,14 @@ const Events = () => {
     const currentTime = new Date().getTime();
     const diff = eventTime - currentTime;
 
-    if (diff <= 0) return "Registration Ended!";
+    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, ended: true };
+
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    return `${days} days left`;
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    return { days, hours, minutes, seconds, ended: false };
   };
 
   if (loading) {
@@ -124,13 +147,19 @@ const Events = () => {
             <div key={event.id} className="timeline-item">
               <div className="timeline-dot"></div>
               <div className="event-card">
-                {event.type === 'upcoming' && <p className="countdown">{calculateCountdown(event.date)}</p>}
+                {event.type === 'upcoming' && countdowns[event.id] && (
+                  <div className="countdown-container">
+                    <p className="countdown">
+                      Registration ends in: {countdowns[event.id].registration.ended ? 'Ended' : `${countdowns[event.id].registration.days}d ${countdowns[event.id].registration.hours}h ${countdowns[event.id].registration.minutes}m ${countdowns[event.id].registration.seconds}s`}
+                    </p>
+                  </div>
+                )}
                 <div className="event-details">
                   <h3>{event.title}</h3>
                   <p className="event-description">{event.description.substring(0, 100)}...</p>
                   <p className="event-meta">
                     {event.type === 'live' && <span className="live-indicator"></span>}
-                    <strong>Date:</strong> {event.date}
+                    <strong>Date:</strong> {new Date(event.date).toDateString()}
                   </p>
                   <p className="event-meta"><strong>Venue:</strong> {event.venue}</p>
                   <div className="event-buttons">

@@ -83,7 +83,7 @@ const Home = () => {
           <p>Community Members</p>
         </div>
         <div className="stat-item">
-          <h2><CountUp end={2024} duration={3} /></h2>
+          <h2>2024</h2>
           <p>Year Founded</p>
         </div>
       </section>

@@ -7,6 +7,8 @@ const RegistrationList = ({ eventId }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiUrl = import.meta.env.VITE_API_URL;
+  
   useEffect(() => {
     if (!eventId) {
       setLoading(false);
@@ -24,7 +26,7 @@ const RegistrationList = ({ eventId }) => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`/api/admin/registration/${eventId}`, {
+        const response = await fetch(`${apiUrl}/api/admin/registrations/${eventId}`, {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },

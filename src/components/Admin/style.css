@@ -13,6 +13,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-top: 4rem;
 }
 
 .controls-container {
@@ -31,7 +32,7 @@
 
 .search-input,
 .filter-select {
-  padding: 0.7rem;
+  padding: 0.4rem;
   border-radius: 5px;
   border: 1px solid #555;
   background-color: #333;

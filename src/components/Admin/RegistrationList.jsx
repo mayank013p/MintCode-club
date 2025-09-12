@@ -117,7 +117,6 @@ const RegistrationList = ({ eventId }) => {
               <th>Roll Number</th>
               <th>College Name</th>
               <th>Year</th>
-              <th>Roll No.</th>
               <th>MintCode Member</th>
               <th>Gender</th>
               <th>Occupation</th>
@@ -137,7 +136,6 @@ const RegistrationList = ({ eventId }) => {
                 <td>{reg.rollnumber}</td>
                 <td>{reg.collegename}</td>
                 <td>{reg.year}</td>
-                <td>{reg.rollnumber}</td>
                 <td>{reg.mintcodemember ? 'Yes' : 'No'}</td>
                 <td>{reg.gender}</td>
                 <td>{reg.occupation}</td>

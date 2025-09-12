@@ -7,6 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [idToken, setIdToken] = useState(null);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const [onLoginSuccess, setOnLoginSuccess] = useState(null);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -35,11 +36,33 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('idToken');
   };
 
-  const openLoginPopup = () => setShowLoginPopup(true);
-  const closeLoginPopup = () => setShowLoginPopup(false);
+  const openLoginPopup = (successCallback) => {
+    if (successCallback && typeof successCallback === "function") {
+      setOnLoginSuccess(() => successCallback);
+    } else {
+      setOnLoginSuccess(null);
+    }
+    setShowLoginPopup(true);
+  };
+
+  const closeLoginPopup = () => {
+    setShowLoginPopup(false);
+    setOnLoginSuccess(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ user, idToken, login, logout, showLoginPopup, openLoginPopup, closeLoginPopup }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        idToken,
+        login,
+        logout,
+        showLoginPopup,
+        openLoginPopup,
+        closeLoginPopup,
+        onLoginSuccess,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

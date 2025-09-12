@@ -86,7 +86,7 @@ const Events = () => {
     if (idToken) {
       navigate(`/register/${event.title}`, { state: { event } });
     } else {
-      openLoginPopup();
+      openLoginPopup(() => navigate(`/register/${event.title}`, { state: { event } }));
     }
   };
 

@@ -32,7 +32,7 @@ const AdminPrivateRoute = ({ children }) => {
 function AppContent() {
   const [initialLoading, setInitialLoading] = useState(true);
   const { loading } = useLoading();
-  const { showLoginPopup, closeLoginPopup } = useAuth();
+  const { showLoginPopup, closeLoginPopup, onLoginSuccess } = useAuth();
 
   useEffect(() => {
     // Fake loading delay for home page
@@ -51,7 +51,7 @@ function AppContent() {
     <Router>
       <Navbar />
       <Suspense fallback={<Preloader />}>
-        <LoginPopup show={showLoginPopup} onClose={closeLoginPopup} />
+        <LoginPopup show={showLoginPopup} onClose={closeLoginPopup} onLoginSuccess={onLoginSuccess} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUsPage />} />
